@@ -5,22 +5,22 @@ const withAuth = require("../utils/auth");
 router.get("/", async (req, res) => {
   try {
     // Get all Posts and JOIN with user data
-    const PostData = await Post.findAll({
+    const postData = await Post.findAll({
       include: [
         {
           model: User,
-          model: Comment,
+          // model: Comment,
           attributes: ["name"],
         },
       ],
     });
 
     // Serialize data so the template can read it
-    const Posts = PostData.map((Post) => Post.get({ plain: true }));
+    const posts = postData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render("homepage", {
-      Posts,
+      posts,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -28,9 +28,9 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/Post/:id", async (req, res) => {
+router.get("/post/:id", async (req, res) => {
   try {
-    const PostData = await Post.findByPk(req.params.id, {
+    const postData = await post.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -40,10 +40,10 @@ router.get("/Post/:id", async (req, res) => {
       ],
     });
 
-    const Post = PostData.get({ plain: true });
+    const post = postData.get({ plain: true });
 
-    res.render("Post", {
-      ...Post,
+    res.render("post", {
+      ...post,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -61,7 +61,7 @@ router.get("/profile", withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-
+    console.log(user);
     res.render("profile", {
       ...user,
       logged_in: true,
