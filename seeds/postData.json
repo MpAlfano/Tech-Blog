@@ -1,0 +1,17 @@
+[
+    {
+      "title": "NFT",
+      "description": "They are an interesting topic, in some scenarios they could be worth something, but many are just a waste of time.",
+      "user_id": 1
+    },
+    {
+      "title": "TDD",
+      "description": "Very important concept to understand. Without order your code could descend into chaos!",
+      "user_id": 2
+    },    {
+      "title": "Encrytion",
+      "description": "With everyone having access to computers and the software it is extremely important to encrypt all sensitive information!",
+      "user_id": 3
+    }
+  ]
+  
