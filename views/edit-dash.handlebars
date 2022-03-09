@@ -5,10 +5,18 @@
         <h3>{{title}}</a></h3>
     </div>
     <div class="col-md-7">
-        <p>
-            {{this.description}}
-        </p>
+        <div class="description card">
+            <form class="comment">
+                <div class="body">
+                    <div>
+                        <textarea>{{this.description}}</textarea>
+                    </div>
+                    <button type="submit" class="btn" id="comment">Save comment</button>
+                </div>
+            </form>
+        </div>
     </div>
+    <button class="btn btm-sm" id="update">Update</button>
 </div>
 <div class="row mb-4 post">
 
@@ -39,4 +47,5 @@
 </div>
 {{/if}}
 
+<script src="/js/edit.js"></script>
 <script src="/js/comment.js"></script>

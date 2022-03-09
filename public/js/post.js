@@ -1,15 +1,10 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
-
   const title = document.querySelector("#post-title").value.trim();
   const description = document.querySelector("#post-desc").value.trim();
 
-  // update post
-  console.log("1");
-  console.log(title);
-  console.log(description);
+  // add a blog post
   if (title && description) {
-    console.log("hi");
     const response = await fetch(`/api/posts`, {
       method: "POST",
       body: JSON.stringify({ title, description }),
@@ -19,13 +14,14 @@ const newFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/profile");
+      document.location.replace("/dashboard");
     } else {
       alert("Failed to create post");
     }
   }
 };
 
+//delete blog post
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
@@ -35,15 +31,12 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/profile");
+      document.location.replace("/dashboard");
     } else {
       alert("Failed to delete post");
     }
   }
 };
-
-//selector for update
-//selector for each post to go into it and see comments
 
 document
   .querySelector(".new-post-form")
@@ -52,3 +45,5 @@ document
 document
   .querySelector(".post-list")
   .addEventListener("click", delButtonHandler);
+
+// document.querySelector("edit-post-form").addEventListener("click", updatePost);
