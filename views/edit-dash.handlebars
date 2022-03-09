@@ -11,7 +11,10 @@
                     <div>
                         <textarea id="description">{{this.description}}</textarea>
                     </div>
-                    <button class="btn btm-sm" id="update" data-id="{{this.id}}">Update</button>
+                    <div class="col-md-4">
+                        <button class="btn btm-sm" id="update" data-id="{{this.id}}">UPDATE</button>
+                        <button class="btn btn-sm btn-danger" id="delete" data-id="{{this.id}}">DELETE</button>
+                    </div>
                 </div>
             </form>
         </div>

@@ -1,3 +1,4 @@
+//edit blog post
 const editPost = async (event) => {
   event.preventDefault();
   const id = event.target.getAttribute("data-id");
@@ -21,4 +22,23 @@ const editPost = async (event) => {
   }
 };
 
+//delete blog post
+const delButtonHandler = async (event) => {
+  if (event.target.hasAttribute("data-id")) {
+    const id = event.target.getAttribute("data-id");
+
+    const response = await fetch(`/api/posts/${id}`, {
+      method: "DELETE",
+    });
+
+    if (response.ok) {
+      document.location.replace("/dashboard");
+    } else {
+      alert("Failed to delete post");
+    }
+  }
+};
+
 document.querySelector("#update").addEventListener("click", editPost);
+
+document.querySelector("#delete").addEventListener("click", delButtonHandler);
