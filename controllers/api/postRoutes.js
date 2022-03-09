@@ -34,4 +34,29 @@ router.delete("/:id", withAuth, async (req, res) => {
   }
 });
 
+router.put("/:id", withAuth, async (req, res) => {
+  try {
+    const postData = await Post.update(
+      {
+        title: req.body.title,
+        description: req.body.description,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+
+    if (!postData) {
+      res.status(404).json({ message: "Failed to update post" });
+      return;
+    }
+
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

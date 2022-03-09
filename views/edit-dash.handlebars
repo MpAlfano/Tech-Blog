@@ -2,23 +2,22 @@
     <div class="col-md-5">
         <span>by {{user.name}} on {{date_created}}.</span>
 
-        <h3>{{title}}</a></h3>
+        <h3 id="title">{{title}}</a></h3>
     </div>
     <div class="col-md-7">
         <div class="description card">
             <form class="comment">
                 <div class="body">
                     <div>
-                        <textarea>{{this.description}}</textarea>
+                        <textarea id="description">{{this.description}}</textarea>
                     </div>
-                    <button type="submit" class="btn" id="comment">Save comment</button>
+                    <button class="btn btm-sm" id="update" data-id="{{this.id}}">Update</button>
                 </div>
             </form>
         </div>
     </div>
-    <button class="btn btm-sm" id="update">Update</button>
 </div>
-<div class="row mb-4 post">
+<div class=" row mb-4 post">
 
     {{#each comments as |comment| }}
     <div class="card-comment">
@@ -38,7 +37,6 @@
             <div>
                 <textarea name="comment-body" id="comment-body"></textarea>
             </div>
-
             <div>
                 <button type="submit" class="btn" id="comment">Save comment</button>
             </div>
