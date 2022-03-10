@@ -13,10 +13,17 @@
 <div class="row mb-4 post">
 
     {{#each comments as |comment| }}
-    <div class="card-comment">
-        <div>
-            <p>{{comment.description}}</p>
-            <h5>- by {{user.name}} on {{date_created}}</h5>
+    <div class="row">
+        <div class="col align-self-start col-sm-4">
+            <span>by {{user.name}} on {{date_created}}.</span>
+            <h3><a class="post" href="/post/{{id}}">{{title}}</a></h3>
+        </div>
+        <div class="col align-self-end">
+            <div class="col-md-10">
+                <p>
+                    {{comment.description}}
+                </p>
+            </div>
         </div>
     </div>
     {{/each}}
@@ -25,14 +32,13 @@
 {{#if logged_in}}
 <div class="comment card">
     <form class="comment">
-        <h2 class="header">Add a comment</h2>
+        <h2 class=>Add a comment</h2>
         <div class="body">
             <div>
-                <textarea name="comment-body" id="comment-body"></textarea>
+                <textarea name="comment-desc" id="comment-desc"></textarea>
             </div>
-
             <div>
-                <button type="submit" class="btn" id="comment">Save comment</button>
+                <button type="submit" class="btn" id="comment">Add comment</button>
             </div>
         </div>
     </form>

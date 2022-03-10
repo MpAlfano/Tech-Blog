@@ -2,13 +2,8 @@
 const addComment = async (event) => {
   event.preventDefault();
 
-  console.log("working?");
-  const description = document.querySelector("#comment-body").value.trim();
+  const description = document.querySelector("#comment-desc").value.trim();
   const post_id = window.location.toString().split("/").length - 1 - 1;
-
-  console.log(window.location.pathname.split("/"));
-  console.log(window.location.toString().split("/").length - 1 - 1);
-  console.log(post_id);
 
   if (comment) {
     const response = await fetch("/api/comments", {
