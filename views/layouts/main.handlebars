@@ -11,29 +11,34 @@
 </head>
 
 <body>
-    <nav class="nav">
-        <header class="header display-flex justify-space-between align-center p-2" id="header">
-            <a href="/list">
-                <div class="d-flex justify-content-center">
-                    <div class="header_title me-2">
-                        <h5>Homepage</h5>
+    <nav>
+        <header class="header" id="header">
+            <div class="d-flex justify-content-right">
+                <a href="/">
+                    <div class="header-title">
+                        <button class="no-button">Homepage</h5>
                     </div>
-            </a>
+                </a>
+                {{#if logged_in}}
+                <a href="/dashboard">
+                    <div>
+                        <button class="no-button">Dashboard</button>
+                    </div>
+                </a>
+                <div>
+                    <button class="no-button" id="logout">Logout</button>
+                </div>
+                {{else}}
+                <a href="/login">Sign up or Login</a>
+                {{/if}}
 
-            {{#if logged_in}}
-            <a href="/dashboard">Dashboard</a> |
-            <button class="no-button" id="logout">logout</button>
-            {{else}}
-            <a href="/login">Sign up or Login</a>
-            {{/if}}
-
+            </div>
         </header>
-        <div class="title">Tech Blog</div>
+        <h1 class="main-title d-flex justify-content-center">Tech Blog</h1>
     </nav>
-    <main class="p-2 p-md-3">
-        <section class="mx-auto px-3 bg-white border h-100 rounded">
-            {{{ body }}}
-        </section>
+    <main>
+
+        {{{ body }}}
     </main>
 
     {{#if logged_in}}

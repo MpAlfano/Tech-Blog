@@ -1,3 +1,9 @@
+:root {
+  --primary: #77be80;
+  --secondary: #126574;
+  --tertiary: #660c69;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -13,13 +19,20 @@ body {
   font-size: 16px;
 }
 
+nav header {
+  text-align: right;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+  padding: 1% 2%;
+}
+
 .no-button {
   background: none;
   border: none;
-  padding: 0;
+  padding: 0 5px;
   cursor: pointer;
   text-decoration: none;
-  color: var(--primary);
+  color: var(--secondary);
   font-size: 22px;
   margin-left: 1%;
 }
@@ -29,10 +42,10 @@ a:hover {
 }
 
 .card-head {
-  color: turquoise;
-  background-color: green;
-  padding: 2%;
-  border-style: solid;
+  color: var(--primary);
+  background-color: var(--secondary);
+  padding: 0.5%;
+  border: 2px solid;
 }
 
 .card-desc {
@@ -41,4 +54,12 @@ a:hover {
 
 .card-title {
   font-size: 1.6rem;
+}
+
+.main-title {
+  font-size: 3rem;
+  padding: 0 10px;
+  background-color: var(--primary);
+  color: var(--secondary);
+  display: inline-block;
 }
