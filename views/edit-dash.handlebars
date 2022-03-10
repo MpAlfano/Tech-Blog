@@ -1,51 +1,57 @@
-<div class="row mb-4 post">
-    <div class="col-md-5">
-        <span>by {{user.name}} on {{date_created}}.</span>
-
-        <h3 id="title">{{title}}</a></h3>
-    </div>
-    <div class="col-md-7">
-        <div class="description card">
-            <form class="comment">
-                <div class="body">
-                    <div>
-                        <textarea id="description">{{this.description}}</textarea>
-                    </div>
-                    <div class="col-md-4">
-                        <button class="btn btm-sm" id="update" data-id="{{this.id}}">UPDATE</button>
-                        <button class="btn btn-sm btn-danger" id="delete" data-id="{{this.id}}">DELETE</button>
-                    </div>
-                </div>
-            </form>
+<div class="card-post">
+    <div class="card-head">
+        <div class="col align-self-start col-sm-4">
+            <span>by {{user.name}} on {{date_created}}.</span>
+            <h3>{{title}}</h3>
         </div>
     </div>
 </div>
-<div class=" row mb-4 post">
-
-    {{#each comments as |comment| }}
-    <div class="card-comment">
+<form class="comment">
+    <div class="body">
         <div>
-            <p>{{comment.description}}</p>
-            <h5>- by {{user.name}} on {{date_created}}</h5>
+            <h4>Edit your post description</h4>
+            <textarea id="description">{{this.description}}</textarea>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-success" id="update" data-id="{{this.id}}">UPDATE</button>
+            <button class="btn btn-sm btn-danger" id="delete" data-id="{{this.id}}">DELETE</button>
+        </div>
+    </div>
+</form>
+</div>
+</div>
+</div>
+<div class=" row mb-4 post">
+    <h3>Comments</h3>
+    {{#each comments as |comment| }}
+    <div class="card-post">
+        <div class="card-head">
+            <span>by {{user.name}} on {{date_created}}.</span>
+            <h3><a class="card-title" href="/post/{{id}}">{{title}}</a></h3>
+            <div class="col align-self-end">
+                <div class="col-md-10">
+                    <p>
+                        {{comment.description}}
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
     {{/each}}
 
 </div>
 {{#if logged_in}}
-<div class="comment card">
-    <form class="comment">
-        <h2 class="header">Add a comment</h2>
-        <div class="body">
-            <div>
-                <textarea name="comment-body" id="comment-body"></textarea>
-            </div>
-            <div>
-                <button type="submit" class="btn" id="comment">Save comment</button>
-            </div>
+
+<form class="comment">
+    <h2 class=>Add a comment</h2>
+    <div class="body">
+        <div>
+            <textarea name="comment-desc" id="comment-desc"></textarea>
         </div>
-    </form>
-</div>
+    </div>
+    <button type="submit" class="btn btn-success" id="comment">Add comment</button>
+</form>
+
 {{/if}}
 
 <script src="/js/edit.js"></script>

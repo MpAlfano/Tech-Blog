@@ -11,7 +11,7 @@
     <div class="card-head">
         <div class="col align-self-start col-sm-4">
             <span>by {{user.name}} on {{date_created}}.</span>
-            <h3><a class="card-title" href="/post/{{id}}">{{title}}</a></h3>
+            <h3><a class="card-title" href="/dashboard/{{id}}">{{title}}</a></h3>
         </div>
         <div class="col align-self-end">
             <div class="col-md-10 card-desc">
@@ -25,25 +25,24 @@
 </div>
 {{/if}}
 
-<div class="row mt-4">
-    <div class="col-md-6">
-        <h3>Create a New Post:</h3>
 
-        <form class="form new-post-form">
-            <div class="form-group">
-                <label for="post-title">Title:</label>
-                <input class="form-input" type="text" id="post-title" name="post-title" />
-            </div>
-            <div class="form-group">
-                <label for="post-desc">Description:</label>
-                <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Create</button>
-            </div>
-        </form>
+<h3>Create a New Post:</h3>
+
+<form class="form new-post-form">
+    <div class="form-group">
+        <label for="post-title">Title:</label>
+        <input class="form-input" type="text" id="post-title" name="post-title" />
     </div>
-</div>
+    </br>
+    <div>
+        <label for="post-desc">Description:</label>
+        <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+
+</form>
+
+
 
 
 <script src="./js/post.js"></script>

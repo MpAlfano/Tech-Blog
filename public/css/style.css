@@ -1,7 +1,7 @@
 :root {
   --primary: #77be80;
   --secondary: #126574;
-  --tertiary: #660c69;
+  --tertiary: #008537;
 }
 
 * {
@@ -37,6 +37,11 @@ nav header {
   margin-left: 1%;
 }
 
+a {
+  text-decoration: none;
+  color: var(--tertiary);
+}
+
 a:hover {
   color: blue;
 }
@@ -62,4 +67,13 @@ a:hover {
   background-color: var(--primary);
   color: var(--secondary);
   display: inline-block;
+}
+
+.new-post-form input {
+  width: 600px;
+}
+textarea {
+  width: 100%;
+  min-height: 80px;
+  margin-top: 1%;
 }

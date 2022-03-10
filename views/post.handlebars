@@ -1,23 +1,24 @@
-<div class="row mb-4 post">
-    <div class="col-md-5">
-        <span>by {{user.name}} on {{date_created}}.</span>
-
-        <h3>{{title}}</a></h3>
-    </div>
-    <div class="col-md-7">
-        <p>
-            {{this.description}}
-        </p>
-    </div>
-</div>
-<div class="row mb-4 post">
-
-    {{#each comments as |comment| }}
-    <div class="row">
+<div class="card-post">
+    <div class="card-head">
         <div class="col align-self-start col-sm-4">
             <span>by {{user.name}} on {{date_created}}.</span>
-            <h3><a class="post" href="/post/{{id}}">{{title}}</a></h3>
+            <h3>{{title}}</h3>
         </div>
+        <div class="col align-self-end">
+            <div class="col-md-10 card-desc">
+                <p>
+                    {{description}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<h3>Comments</h3>
+{{#each comments as |comment| }}
+<div class="card-post">
+    <div class="card-head">
+        <span>by {{user.name}} on {{date_created}}.</span>
+        <h3><a class="card-title" href="/post/{{id}}">{{title}}</a></h3>
         <div class="col align-self-end">
             <div class="col-md-10">
                 <p>
@@ -26,23 +27,22 @@
             </div>
         </div>
     </div>
-    {{/each}}
+</div>
+{{/each}}
 
 </div>
 {{#if logged_in}}
-<div class="comment card">
-    <form class="comment">
-        <h2 class=>Add a comment</h2>
-        <div class="body">
-            <div>
-                <textarea name="comment-desc" id="comment-desc"></textarea>
-            </div>
-            <div>
-                <button type="submit" class="btn" id="comment">Add comment</button>
-            </div>
+
+<form class="comment">
+    <h2 class=>Add a comment</h2>
+    <div class="body">
+        <div>
+            <textarea name="comment-desc" id="comment-desc"></textarea>
         </div>
-    </form>
-</div>
+    </div>
+    <button type="submit" class="btn btn-success" id="comment">Add comment</button>
+</form>
+
 {{else}}
 <h4><a href="/login" </a>Log in to add a comment</h4>
 {{/if}}
