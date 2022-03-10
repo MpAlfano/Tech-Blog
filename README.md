@@ -14,8 +14,10 @@ Creating a website for users to make blog posts about the latest and greates tec
 - [LICENSE](#license)
 
 ## DEMO
+![Screenshot (591)](https://user-images.githubusercontent.com/96558916/157590091-85e7bccc-9606-4dab-b186-075af0eae047.png)
 
 ## Deployment
+ [Check out the website here](https://tech-blog-4.herokuapp.com/)
 
 ## Usage
 
